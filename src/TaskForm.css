@@ -1,0 +1,22 @@
+/* Task Form */
+.task-form input, 
+.task-form textarea, 
+.task-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Submit button */
+.task-form button {
+    background: #28a745;
+    color: white;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.task-form button:hover {
+    background: #218838;
+}

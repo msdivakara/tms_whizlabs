@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "cdbb",
+      "name": "Whiz admin",
+      "mobile": "7485478962",
+      "email": "whiz@labs.com",
+      "password": "Whizlabs"
+    }
+  ]
+}
