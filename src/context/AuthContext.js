@@ -1,7 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
 
 const AuthContext = createContext(null);
+
+// Mocked User Data
+const MOCKED_USER = {
+    id: 1,
+    email: "whiz@labs.com",
+    password: "whizlabs"
+};
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -13,24 +19,13 @@ export const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    const login = async (email, password) => {
-        try {
-            const response = await axios.get("http://localhost:5000/users");
-            const users = response.data;
-
-            const existingUser = users.find(user => user.email === email && user.password === password);
-
-            if (existingUser) {
-                localStorage.setItem("user", JSON.stringify(existingUser));
-                setUser(existingUser);
-                return true;
-            } else {
-                return false;
-            }
-        } catch (err) {
-            console.error("Login failed:", err);
-            return false;
+    const login = (email, password) => {
+        if (email === MOCKED_USER.email && password === MOCKED_USER.password) {
+            localStorage.setItem("user", JSON.stringify(MOCKED_USER));
+            setUser(MOCKED_USER);
+            return true;
         }
+        return false;
     };
 
     const logout = () => {
